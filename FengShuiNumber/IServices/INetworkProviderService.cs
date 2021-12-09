@@ -10,5 +10,6 @@ namespace FengShuiNumber.IServices
         Task<IEnumerable<NetworkProviderModel>> GetNetworkProvidersAsync();
         Task<bool> CreateNetworkProviderAsync(NetworkProviderModelRq networkProvider);
         Task<bool> ClearNetworkProviderAsync();
+        Task<int> CountNetworkProviderAsync();
     }
 }

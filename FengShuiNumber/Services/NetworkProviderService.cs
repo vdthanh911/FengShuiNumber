@@ -37,5 +37,10 @@ namespace FengShuiNumber.Services
         {
             return await _networkProviderRepository.ClearNetworkProviderAsync();
         }
+
+        public async Task<int> CountNetworkProviderAsync()
+        {
+            return await _networkProviderRepository.CountNetworkProviderAsync();
+        }
     }
 }

@@ -20,7 +20,7 @@ namespace FengShuiNumber.Repositories
 
         public async Task<IEnumerable<NetworkProvider>> GetNetworkProvidersAsync()
         {
-            return await FengShuiNumberDbContext.NetworkProviders.ToListAsync();
+            return await FengShuiNumberDbContext.NetworkProviders.Include(r => r.NetworkProviderPrefixes).ToListAsync();
         }
 
         public async Task<bool> CreateNetworkProviderAsync(NetworkProvider entity)
@@ -35,6 +35,19 @@ namespace FengShuiNumber.Repositories
             FengShuiNumberDbContext.NetworkProviders.RemoveRange(FengShuiNumberDbContext.NetworkProviders);
             await FengShuiNumberDbContext.SaveChangesAsync();
             return true;
+        }
+
+        public async Task<int> CountNetworkProviderAsync()
+        {
+            try
+            {
+                return await FengShuiNumberDbContext.NetworkProviders.CountAsync();
+            }
+            catch
+            {
+                return 0;
+            }
+            
         }
     }
 }

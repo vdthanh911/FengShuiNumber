@@ -1,6 +1,5 @@
 ﻿using FengShuiNumber.ModelRequests;
 using FengShuiNumber.ModelResponses;
-using FengShuiNumber.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -11,5 +10,8 @@ namespace FengShuiNumber.IServices
         Task<IEnumerable<MobileNumberModel>> GetMobileNumbersAsync();
         Task<bool> CreateMobileNumberAsync(MobileNumberModelRq modelRq);
         Task<bool> ClearMobileNumberAsync();
+        Task<IEnumerable<MobileNumberModel>> GetFengShuiMobileNumbersAsync();
+        bool CheckFengShuiMobileNumber(string mobileNumber);
+        string MakeFengShuiNumber(string prefix);
     }
 }

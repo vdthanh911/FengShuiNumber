@@ -8,19 +8,28 @@ namespace FengShuiNumber.Common.FengShuiConfiguration
 {
     public class FengShuiConfiguration : IFengShuiConfiguration
     {
+        private FengShuiConfigurationModel _fengShuiConfiguration { get; set; }
         private readonly IAppSetting _appSetting;
         public FengShuiConfiguration(IAppSetting appSetting)
         {
             _appSetting = appSetting;
         }
+
         public FengShuiConfigurationModel GetFengShuiConfiguration()
         {
-            string file_path = Directory.GetCurrentDirectory() + _appSetting.GetFengShuiConfigurationPath();
-            if (File.Exists(file_path))
+            if (_fengShuiConfiguration == null)
             {
-                return JsonConvert.DeserializeObject<FengShuiConfigurationModel>(File.ReadAllText(file_path));
+                string file_path = Directory.GetCurrentDirectory() + _appSetting.GetFengShuiConfigurationPath();
+                if (File.Exists(file_path))
+                {
+                    _fengShuiConfiguration = JsonConvert.DeserializeObject<FengShuiConfigurationModel>(File.ReadAllText(file_path));
+                }
+                else
+                {
+                    _fengShuiConfiguration = new FengShuiConfigurationModel();
+                }
             }
-            return new FengShuiConfigurationModel();
+            return _fengShuiConfiguration;
         }
     }
 }
