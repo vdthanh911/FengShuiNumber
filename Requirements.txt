@@ -1,0 +1,27 @@
+A. Duration: 3 days
+B. Output:
+	- Source code is compressed in .rar file
+	- Testing result is captured and writen in .docx file
+C. Requirement: Find feng shui numbers.
+    1. Content: Write a console program to read configuration of how to be a feng shui number and check all the available numbers (that are stored in db) matched feng shui criterias. All matched numbers are output to console.
+    2. Feng shui configuration:
+    .) Mobile phone format: limit at 10 num chars.
+    .) Apply for 3 mobile network provider: Viettel, Mobi, VinaPhone with the prefixes
+	- Viettel: 086xxx, 096xxx, 097xxx
+	- Mobi: 089xxx, 090xxx, 093xxx
+	- VinaPhone: 088xxx, 091xxx, 094xxx
+    .) Feng shui configuration:
+	(1). The last 2 num chars is taboo: if is rule is violated, other criterias at (2) are not checked in any case.
+		00, 66
+		04, 45, 85, 27, 67
+		17, 57, 97, 98, 58
+		42, 82
+		69
+	(2) Good feng shui numbers: match all criteria below:
+		Total first 5 nums / Total last 5 nums: matches 1 in 2 conditions: 24/29 or 24/28
+		Last nice pair of numbers: 19, 24, 26, 37, 34
+    3. Required:
+- A db to store mobile numbers and network provider (Viettel, Mobi, ...).
+- Configuration file of how to be a feng shui number. The program to use this information from the file to check all numbers stored in db and display all matched to console.
+    4. Nice to have:
+- Any design pattern, programming skills applied to make the code optimized, extensible, ...
